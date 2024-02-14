@@ -12,5 +12,5 @@ router.use('/:categoryId/subCategory',subCategory)
 router.post('/',auth(endPoint.create),fileUpload(fileValidation.image).single('image'),validation(validators.createCategory),CategoryController.createCategory)
 router.put('/update/:categoryId',auth(endPoint.update),fileUpload(fileValidation.image).single('image'),validation(validators.updateCategory),CategoryController.updateCategory)
 router.get('/:categoryId',auth(endPoint.get),validation(validators.getCategory),CategoryController.getCategory)
-router.get('/',auth(Object.values(roles)),CategoryController.getCategories)
+router.get('/',auth(endPoint.get),CategoryController.getCategories)
 export default router;
