@@ -11,5 +11,4 @@ router.get('/confirmEmail/:token',validation(validators.token),AuthController.co
 router.get('/NewconfirmEmail/:token',validation(validators.token),AuthController.NewconfirmEmail)
 router.patch('/sendCode',validation(validators.sendCode),AuthController.sendCode)
 router.patch('/forgetPassword',validation(validators.forgetPassword),AuthController.forgetPassword)
-
 export default router;
