@@ -31,6 +31,7 @@ const initApp=(app,express)=>{
 // }
     connectDB();
     app.use(express.json());
+    app.use(cors())
     app.use('/upload',express.static(fullPath));
     app.use("/auth", AuthRouter);
     app.use("/category",CategoryRouter)
