@@ -4,7 +4,7 @@ import { generalFeilds } from '../../Middleware/validation.js';
 export const signupSchema = 
 
    Joi.object({
-        userName:Joi.string().alphanum().min(3).max(20).required().messages({
+        name:Joi.string().alphanum().min(3).max(20).required().messages({
             'any.required':'username is required',
             'string.empty':'username is required'
         }),

@@ -1,6 +1,6 @@
 import mongoose, {Schema,Types,model} from 'mongoose';
 const userSchema = new Schema ({
-    userName:{
+    name:{
         type:String,
         required:[true,'username is required'],
         min:[2],

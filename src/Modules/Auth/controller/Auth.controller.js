@@ -8,7 +8,7 @@ import { loginSchema, signupSchema } from "../Auth.validation.js";
 
 
 export const signup= async (req,res,next)=>{
-    const {userName,email,password} = req.body;
+    const {name,email,password} = req.body;
     const user = await userModel.findOne({email});
     if(user){
         return next(new Error("email already exists",{cause:409}));
@@ -287,7 +287,7 @@ export const signup= async (req,res,next)=>{
     </html>`
     await sendEmail(email,`confirm email`,html)
      const HashPassword=hash(password)
-    const createUser= await userModel.create({userName,password:HashPassword,email})
+    const createUser= await userModel.create({name,password:HashPassword,email})
     return res.status(201).json({message:"success",user:createUser._id});
 }
 export const confirmEmail = async(req,res)=>{
