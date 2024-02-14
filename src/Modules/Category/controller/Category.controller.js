@@ -41,6 +41,6 @@ export const getCategory = asyncHandler( async(req,res,next)=>{
     return res.status(200).json({message:'success',category})
     })
 export const getCategories = asyncHandler( async(req,res,next)=>{
-        const categories= await categoryModel.find().populate('Subcategory')
+        const categories= await categoryModel.find().populate([{ path: 'Subcategory', strictPopulate: false }])
         return res.status(200).json({message:'success',categories})
         })
